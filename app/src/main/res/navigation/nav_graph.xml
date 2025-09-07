@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/upcoming_event"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/upcoming_event"
+        android:name="com.example.favoriteevent.ui.UpcomingEvent"
+        android:label="Upcoming"/>
+
+
+    <fragment
+        android:id="@+id/finished_event"
+        android:name="com.example.favoriteevent.ui.FinishedEvent"
+        android:label="Finished"/>
+
+    <fragment
+        android:id="@+id/favorite_event"
+        android:name="com.example.favoriteevent.ui.FavoriteEvent"
+        android:label="Favorite"/>
+
+    <fragment
+        android:id="@+id/setting"
+        android:name="com.example.favoriteevent.ui.Setting"
+        android:label="Setting"/>
+
+</navigation>

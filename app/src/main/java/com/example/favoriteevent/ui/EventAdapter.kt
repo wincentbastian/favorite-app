@@ -1,0 +1,48 @@
+package com.example.favoriteevent.ui
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.example.favoriteevent.R
+import com.example.favoriteevent.data.EventUi
+
+class EventAdapter(
+    private val onClick: (EventUi, View) -> Unit
+) : ListAdapter<EventUi, EventAdapter.VH>(diff) {
+
+    companion object {
+        val diff = object : DiffUtil.ItemCallback<EventUi>() {
+            override fun areItemsTheSame(a: EventUi, b: EventUi) = a.id == b.id
+            override fun areContentsTheSame(a: EventUi, b: EventUi) = a == b
+        }
+    }
+
+    inner class VH(view: View) : RecyclerView.ViewHolder(view) {
+//        private val img = view.findViewById<ImageView>(R.id.imgThumb)
+        private val tvTitle = view.findViewById<TextView>(R.id.event_title)
+        private val tvDesc  = view.findViewById<TextView>(R.id.event_desc)
+        private val tvRating = view.findViewById<TextView>(R.id.event_rating)
+
+        fun bind(item: EventUi) {
+            tvTitle.text = item.title
+            tvDesc.text  = item.shortDesc
+            tvRating.text = item.shortDesc
+
+//            if (!item.imageThumb.isNullOrBlank())
+//                Glide.with(img).load(item.imageThumb).into(img)
+//            else
+//                img.setImageResource(R.drawable.ic_launcher_foreground)
+//
+//            itemView.setOnClickListener { onClick(item, itemView) }
+        }
+    }
+
+    override fun onCreateViewHolder(p: ViewGroup, vt: Int) =
+        VH(LayoutInflater.from(p.context).inflate(R.layout.layout_event, p, false))
+
+    override fun onBindViewHolder(h: VH, pos: Int) = h.bind(getItem(pos))
+}
