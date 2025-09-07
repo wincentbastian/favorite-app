@@ -16,7 +16,7 @@ class EventViewModel: ViewModel() {
     val loading = MutableLiveData(false)
     val error = MutableLiveData<String?>(null)
 
-    fun loadUpcoming() = load {repo.fetchUpcomingEvent()}
+    fun loadUpcoming() = load { repo.fetchUpcomingEvent() }
     fun loadFinished() = load { repo.fetchFinished() }
 
     private fun load(block: suspend () -> List<EventUi>) = viewModelScope.launch {
@@ -24,6 +24,7 @@ class EventViewModel: ViewModel() {
             loading.value = true; error.value = null
             _items.value = block()
         } catch (t: Throwable) {
+            println(t.message?: "Unknown error")
             error.value = t.message ?: "Unknown error"
         } finally {
             loading.value = false
