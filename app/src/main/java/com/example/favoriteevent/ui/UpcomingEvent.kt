@@ -39,6 +39,11 @@ class UpcomingEvent : Fragment(R.layout.fragment_upcoming_event) {
             binding.errorTextView.visibility = View.VISIBLE
         }
 
+        favoriteViewModel.favorites.observe(viewLifecycleOwner) { favEntities ->
+            val ids = favEntities.map { it.id }.toSet()
+            adapter.setFavoriteIds(ids)
+        }
+
         viewModel.loadUpcoming()
     }
 }

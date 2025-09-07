@@ -13,11 +13,11 @@ interface FavoriteDao {
     fun getAllFavorites(): Flow<List<FavoriteEventEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertFavorite(favorite: FavoriteEventEntity)
+    suspend fun insertFavorite(favorite: FavoriteEventEntity)
 
     @Query("DELETE FROM favorites WHERE id = :eventId")
-    fun deleteFavorite(eventId: Long)
+    suspend fun deleteFavoriteById(eventId: Long)
 
     @Query("SELECT EXISTS(SELECT 1 FROM favorites WHERE id = :eventId)")
-    fun isFavorite(eventId: Long): Boolean
+    suspend fun isFavorite(eventId: Long): Boolean
 }
