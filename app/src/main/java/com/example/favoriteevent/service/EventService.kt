@@ -1,7 +1,7 @@
 package com.example.favoriteevent.service
 
-import com.example.favoriteevent.data.EventDetailResponse
-import com.example.favoriteevent.data.EventResponse
+import com.example.favoriteevent.data.models.EventDetailResponse
+import com.example.favoriteevent.data.models.EventResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

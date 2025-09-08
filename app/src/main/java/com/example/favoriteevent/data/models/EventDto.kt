@@ -1,5 +1,4 @@
-package com.example.favoriteevent.data
-
+package com.example.favoriteevent.data.models
 
 data class EventDto(
     val id: Long,

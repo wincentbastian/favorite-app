@@ -1,6 +1,8 @@
 package com.example.favoriteevent.data
 
-import kotlin.String
+import com.example.favoriteevent.data.db.FavoriteEventEntity
+import com.example.favoriteevent.data.models.EventDetailDto
+import com.example.favoriteevent.data.models.EventDto
 
 fun EventDto.toUi(): EventUi =
     EventUi(
@@ -24,3 +26,17 @@ fun EventDetailDto.toUI(): EventDetailUI =
         category = category,
         cityName = cityName,
     )
+
+fun EventUi.toEntity() = FavoriteEventEntity(
+    id = id,
+    title = title,
+    shortDesc = shortDesc,
+    image = image
+)
+
+fun FavoriteEventEntity.toUi() = EventUi(
+    id = id,
+    title = title,
+    shortDesc = shortDesc,
+    image = image,
+)

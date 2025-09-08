@@ -1,16 +1,11 @@
 package com.example.favoriteevent.ui
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.map
 import com.bumptech.glide.Glide
 import com.example.favoriteevent.R
 import com.example.favoriteevent.data.EventUi

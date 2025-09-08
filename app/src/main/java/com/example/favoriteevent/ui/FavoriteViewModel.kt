@@ -6,7 +6,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.favoriteevent.data.EventUi
 import com.example.favoriteevent.data.toEntity
-import com.example.favoriteevent.local.FavoriteRepository
+import com.example.favoriteevent.data.db.FavoriteRepository
 import kotlinx.coroutines.launch
 
 class FavoriteViewModel(app: Application): AndroidViewModel(app) {

@@ -1,7 +1,6 @@
 package com.example.favoriteevent.data
 
 import android.os.Parcelable
-import kotlinx.android.parcel.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

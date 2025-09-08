@@ -1,4 +1,4 @@
-package com.example.favoriteevent.local
+package com.example.favoriteevent.data.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

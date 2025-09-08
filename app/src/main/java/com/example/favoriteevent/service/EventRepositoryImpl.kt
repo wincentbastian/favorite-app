@@ -2,6 +2,7 @@ package com.example.favoriteevent.service
 
 import com.example.favoriteevent.data.EventDetailUI
 import com.example.favoriteevent.data.EventUi
+import com.example.favoriteevent.data.api.Api
 import com.example.favoriteevent.data.toUI
 import com.example.favoriteevent.data.toUi
 

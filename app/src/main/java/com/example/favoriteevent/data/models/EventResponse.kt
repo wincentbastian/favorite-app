@@ -1,4 +1,4 @@
-package com.example.favoriteevent.data
+package com.example.favoriteevent.data.models
 
 data class EventResponse(
     val error: Boolean,

@@ -1,4 +1,4 @@
-package com.example.favoriteevent.local
+package com.example.favoriteevent.data.db
 
 import android.content.Context
 import kotlinx.coroutines.flow.Flow

@@ -1,5 +1,6 @@
-package com.example.favoriteevent.service
+package com.example.favoriteevent.data.api
 
+import com.example.favoriteevent.service.EventService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
