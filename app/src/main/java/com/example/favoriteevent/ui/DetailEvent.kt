@@ -13,15 +13,24 @@ import com.example.favoriteevent.databinding.FragmentDetailEventBinding
 class DetailEvent : Fragment(R.layout.fragment_detail_event) {
 
     private var _binding: FragmentDetailEventBinding? = null
-    private val binding get() = _binding
+    private val binding get() = _binding!!
 
-    private val viewModel: FavoriteViewModel by viewModels()
+    private val viewModel: DetailViewModel by viewModels()
+    private val favoriteViewModel: FavoriteViewModel by viewModels()
 
     private val eventId: Long by lazy { requireArguments().getLong("eventId") }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentDetailEventBinding.bind(view)
 
-        viewModel.favorites
+        viewModel.loading.observe(viewLifecycleOwner) {
+            binding.loadingDetailEvent.visibility = if (it) View.VISIBLE else View.GONE
+        }
+
+        viewModel.data.observe(viewLifecycleOwner) {
+            binding.eventTitle.text = it?.name
+        }
+
+        viewModel.load(eventId)
     }
 }

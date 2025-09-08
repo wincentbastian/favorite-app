@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.favoriteevent.R
 import com.example.favoriteevent.databinding.FragmentUpcomingEventBinding
@@ -18,7 +19,8 @@ class UpcomingEvent : Fragment(R.layout.fragment_upcoming_event) {
     private val adapter = EventAdapter(
         onToggleFavorite = { favoriteViewModel.toggleFavorite(it) },
         onClick = { item, _ ->
-            val args = Bundle().apply { putParcelable("event", item) }
+            val args = androidx.core.os.bundleOf("eventId" to item.id)
+            findNavController().navigate(R.id.detail_event, args)
         }
     )
 
