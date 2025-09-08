@@ -11,3 +11,12 @@ fun EventDto.toUi(): EventUi =
         },
         image = if (!imageLogo.isNullOrBlank()) imageLogo else mediaCover
     )
+
+fun EventDetailDto.toUI(): EventDetailUI =
+    EventDetailUI(
+        id = id,
+        name = name,
+        mediaCover = mediaCover,
+        category = category,
+        cityName = cityName,
+    )

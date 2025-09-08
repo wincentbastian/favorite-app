@@ -25,4 +25,16 @@
         android:name="com.example.favoriteevent.ui.Setting"
         android:label="Setting"/>
 
+    <fragment
+        android:id="@+id/dest_event_detail"
+        android:name="com.example.favoriteevent.ui.DetailEvent"
+        android:label="Event Detail">
+
+        <argument
+            android:name="eventId"
+            app:argType="long"
+            android:defaultValue="-1"/>
+
+    </fragment>
+
 </navigation>
