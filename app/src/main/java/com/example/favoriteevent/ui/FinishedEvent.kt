@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.favoriteevent.R
 import com.example.favoriteevent.databinding.FragmentFinishedEventBinding
@@ -24,7 +25,8 @@ class FinishedEvent : Fragment(R.layout.fragment_finished_event) {
     private val adapter = EventAdapter(
         onToggleFavorite = { favoriteViewModel.toggleFavorite(it) },
         onClick = { item, _ ->
-            val args = Bundle().apply { putParcelable("event", item) }
+            val args = androidx.core.os.bundleOf("eventId" to item.id)
+            findNavController().navigate(R.id.detail_event, args)
         }
     )
 
@@ -44,6 +46,11 @@ class FinishedEvent : Fragment(R.layout.fragment_finished_event) {
         viewModel.error.observe(viewLifecycleOwner) {
             binding.errorTextView.text = it
             binding.errorTextView.visibility = View.VISIBLE
+        }
+
+        favoriteViewModel.favorites.observe(viewLifecycleOwner) { favEntities ->
+            val ids = favEntities.map { it.id }.toSet()
+            adapter.setFavoriteIds(ids)
         }
 
         viewModel.loadFinished()

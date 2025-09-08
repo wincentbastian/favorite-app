@@ -1,11 +1,17 @@
 package com.example.favoriteevent.ui
 
+import android.content.res.ColorStateList
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.map
+import com.bumptech.glide.Glide
 import com.example.favoriteevent.R
 import com.example.favoriteevent.data.EventUi
 import com.example.favoriteevent.databinding.FragmentDetailEventBinding
@@ -27,8 +33,35 @@ class DetailEvent : Fragment(R.layout.fragment_detail_event) {
             binding.loadingDetailEvent.visibility = if (it) View.VISIBLE else View.GONE
         }
 
-        viewModel.data.observe(viewLifecycleOwner) {
-            binding.eventTitle.text = it?.name
+        viewModel.data.observe(viewLifecycleOwner) { detail ->
+            binding.eventTitle.text = detail!!.name
+            Glide.with(binding.eventDetailImage).load(detail.mediaCover).into(binding.eventDetailImage)
+            binding.eventDescription.text = detail.description
+            binding.eventCategory.text = detail.category
+            val spanned = HtmlCompat.fromHtml(detail.description.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+
+            binding.eventDescription.text = spanned
+            binding.eventDescription.movementMethod = LinkMovementMethod.getInstance()
+
+
+            favoriteViewModel.favorites.observe(viewLifecycleOwner) { list ->
+                val isFav = list.any { it.id == eventId }
+                binding.eventDetailFavorite.imageTintList =
+                    androidx.appcompat.content.res.AppCompatResources.getColorStateList(
+                        requireContext(),
+                        if (isFav) R.color.red else R.color.white
+                    )
+            }
+
+            binding.eventDetailFavorite.setOnClickListener {
+                val eventUiFromDetail = EventUi(
+                    id = detail.id,
+                    title = detail.name,
+                    shortDesc = detail.description!!,
+                    image = detail.mediaCover,
+                )
+                favoriteViewModel.toggleFavorite(eventUiFromDetail)
+            }
         }
 
         viewModel.load(eventId)

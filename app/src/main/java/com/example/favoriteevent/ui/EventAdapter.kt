@@ -52,11 +52,9 @@ class EventAdapter(
             ibFav.setOnClickListener { onToggleFavorite(item) }
 
             val isFav = favoriteIds.contains(item.id)
-            if (isFav) {
-                ibFav.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(itemView.context, R.color.red))
-            } else {
-                ibFav.imageTintList = ColorStateList.valueOf(ContextCompat.getColor(itemView.context, R.color.black))
-            }
+            ibFav.imageTintList = ColorStateList.valueOf(
+                ContextCompat.getColor(itemView.context, if (isFav) R.color.red else R.color.black)
+            )
 
 
         }

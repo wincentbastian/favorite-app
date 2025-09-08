@@ -1,5 +1,7 @@
 package com.example.favoriteevent.data
 
+import kotlin.String
+
 fun EventDto.toUi(): EventUi =
     EventUi(
         id = id,
@@ -16,6 +18,8 @@ fun EventDetailDto.toUI(): EventDetailUI =
     EventDetailUI(
         id = id,
         name = name,
+        summary = summary,
+        description = description,
         mediaCover = mediaCover,
         category = category,
         cityName = cityName,

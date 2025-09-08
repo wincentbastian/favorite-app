@@ -54,11 +54,27 @@
                     android:textSize="28sp"
                     tools:text="Event Title" />
 
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/event_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Category"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+
                 <TextView
                     android:id="@+id/event_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="Event description..." />
+                    android:text="Event description..." />
+
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

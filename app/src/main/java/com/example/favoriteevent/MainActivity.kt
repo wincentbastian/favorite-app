@@ -10,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.favoriteevent.databinding.ActivityMainBinding
+import com.example.favoriteevent.utils.ThemePrefs
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        ThemePrefs.applyNightMode(this)
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -36,7 +38,5 @@ class MainActivity : AppCompatActivity() {
                 navController.popBackStack(item.itemId, false)
             }
         }
-
-
     }
 }
