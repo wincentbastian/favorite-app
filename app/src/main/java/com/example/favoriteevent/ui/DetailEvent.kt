@@ -1,5 +1,6 @@
 package com.example.favoriteevent.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import androidx.fragment.app.Fragment
@@ -21,6 +22,7 @@ class DetailEvent : Fragment(R.layout.fragment_detail_event) {
 
     private val eventId: Long by lazy { requireArguments().getLong("eventId") }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentDetailEventBinding.bind(view)
 
@@ -37,6 +39,7 @@ class DetailEvent : Fragment(R.layout.fragment_detail_event) {
 
             binding.eventDescription.text = spanned
             binding.eventDescription.movementMethod = LinkMovementMethod.getInstance()
+            binding.eventQuota.text = "Quota: ${detail.quota}"
 
 
             favoriteViewModel.favorites.observe(viewLifecycleOwner) { list ->
