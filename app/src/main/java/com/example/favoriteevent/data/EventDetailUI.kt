@@ -12,5 +12,6 @@ data class EventDetailUI(
     val mediaCover: String,
     val category: String,
     val cityName: String,
-    val quota: String
+    val quota: String,
+    val registrants: String
 ): Parcelable

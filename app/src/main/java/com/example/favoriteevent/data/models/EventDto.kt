@@ -9,4 +9,5 @@ data class EventDto(
     val mediaCover: String?,
     val cityName: String?,
     val quota: String,
+    val registrants: String,
 )

@@ -39,7 +39,7 @@ class DetailEvent : Fragment(R.layout.fragment_detail_event) {
 
             binding.eventDescription.text = spanned
             binding.eventDescription.movementMethod = LinkMovementMethod.getInstance()
-            binding.eventQuota.text = "Quota: ${detail.quota}"
+            "Sisa Quota${(detail.quota.toLong() - detail.registrants.toLong())}".also { binding.eventQuota.text = it }
 
 
             favoriteViewModel.favorites.observe(viewLifecycleOwner) { list ->
@@ -58,6 +58,7 @@ class DetailEvent : Fragment(R.layout.fragment_detail_event) {
                     shortDesc = detail.description!!,
                     image = detail.mediaCover,
                     quota = detail.quota,
+                    registrants = detail.registrants
                 )
                 favoriteViewModel.toggleFavorite(eventUiFromDetail)
             }

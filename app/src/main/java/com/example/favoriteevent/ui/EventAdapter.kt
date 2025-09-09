@@ -43,7 +43,7 @@ class EventAdapter(
         fun bind(item: EventUi) {
             tvTitle.text = item.title
             tvDesc.text  = item.shortDesc
-            "Quota: ${item.quota}".also { tvQuota.text = it }
+            "Sisa Quota${(item.quota!!.toLong() - item.registrants.toLong())}".also { tvQuota.text = it }
 
             if (!item.image .isNullOrBlank())
                 Glide.with(img).load(item.image).into(img)

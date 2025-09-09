@@ -15,7 +15,8 @@ fun EventDto.toUi(): EventUi =
             else -> ""
         },
         image = if (!imageLogo.isNullOrBlank()) imageLogo else mediaCover,
-        quota = quota
+        quota = quota,
+        registrants = registrants
     )
 
 fun EventDetailDto.toUI(): EventDetailUI =
@@ -28,6 +29,7 @@ fun EventDetailDto.toUI(): EventDetailUI =
         category = category,
         cityName = cityName,
         quota = quota,
+        registrants = registrants
     )
 
 fun EventUi.toEntity() = FavoriteEventEntity(
@@ -35,7 +37,8 @@ fun EventUi.toEntity() = FavoriteEventEntity(
     title = title,
     shortDesc = shortDesc,
     image = image,
-    quota = quota
+    quota = quota,
+    registrants = registrants
 )
 
 fun FavoriteEventEntity.toUi() = EventUi(
@@ -43,5 +46,7 @@ fun FavoriteEventEntity.toUi() = EventUi(
     title = title,
     shortDesc = shortDesc,
     image = image,
-    quota = quota
+    quota = quota,
+    registrants = registrants
+
 )

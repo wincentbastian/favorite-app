@@ -9,4 +9,5 @@ data class EventDetailDto(
     val category: String,
     val cityName: String,
     val quota: String,
+    val registrants: String,
 )
