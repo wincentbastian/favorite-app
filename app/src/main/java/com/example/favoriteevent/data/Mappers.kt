@@ -14,7 +14,8 @@ fun EventDto.toUi(): EventUi =
             !description.isNullOrBlank() -> description
             else -> ""
         },
-        image = if (!imageLogo.isNullOrBlank()) imageLogo else mediaCover
+        image = if (!imageLogo.isNullOrBlank()) imageLogo else mediaCover,
+        quota = quota
     )
 
 fun EventDetailDto.toUI(): EventDetailUI =
@@ -33,7 +34,8 @@ fun EventUi.toEntity() = FavoriteEventEntity(
     id = id,
     title = title,
     shortDesc = shortDesc,
-    image = image
+    image = image,
+    quota = quota
 )
 
 fun FavoriteEventEntity.toUi() = EventUi(
@@ -41,4 +43,5 @@ fun FavoriteEventEntity.toUi() = EventUi(
     title = title,
     shortDesc = shortDesc,
     image = image,
+    quota = quota
 )

@@ -40,7 +40,6 @@ class FinishedEvent : Fragment(R.layout.fragment_finished_event) {
             adapter.submitList(it)
             binding.finishListEvent.visibility = View.VISIBLE
             binding.errorTextView.visibility = View.GONE
-
         }
 
         viewModel.error.observe(viewLifecycleOwner) {

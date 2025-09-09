@@ -7,5 +7,6 @@ data class EventDto(
     val description: String?,
     val imageLogo: String?,
     val mediaCover: String?,
-    val cityName: String?
+    val cityName: String?,
+    val quota: String,
 )

@@ -57,6 +57,7 @@ class DetailEvent : Fragment(R.layout.fragment_detail_event) {
                     title = detail.name,
                     shortDesc = detail.description!!,
                     image = detail.mediaCover,
+                    quota = detail.quota,
                 )
                 favoriteViewModel.toggleFavorite(eventUiFromDetail)
             }

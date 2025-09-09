@@ -8,5 +8,6 @@ data class EventUi(
     val id: Long,
     val title: String,
     val shortDesc: String,
-    val image: String?
+    val image: String?,
+    val quota: String?
 ) : Parcelable

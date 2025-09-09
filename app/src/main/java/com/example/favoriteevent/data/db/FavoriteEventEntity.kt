@@ -2,6 +2,7 @@ package com.example.favoriteevent.data.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.Query
 
 @Entity(tableName = "favorites")
 data class FavoriteEventEntity(
@@ -9,4 +10,5 @@ data class FavoriteEventEntity(
     val title: String,
     val shortDesc: String,
     val image: String?,
+    val quota: String?
 )

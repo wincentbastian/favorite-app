@@ -30,6 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Event Title"
+                android:maxLines="2"
                 android:textStyle="bold"
                 android:textSize="16sp"/>
 
@@ -38,8 +39,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:maxLines="3"
+                android:maxLines="1"
                 android:text="Event Desc"/>
+
+            <TextView
+                android:id="@+id/event_quota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quota: 100"/>
 
         </LinearLayout>
 

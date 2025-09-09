@@ -38,10 +38,12 @@ class EventAdapter(
         private val tvTitle = view.findViewById<TextView>(R.id.event_title)
         private val tvDesc  = view.findViewById<TextView>(R.id.event_desc)
         private val ibFav = view.findViewById<ImageButton>(R.id.favorite_button)
+        private val tvQuota = view.findViewById<TextView>(R.id.event_quota)
 
         fun bind(item: EventUi) {
             tvTitle.text = item.title
             tvDesc.text  = item.shortDesc
+            "Quota: ${item.quota}".also { tvQuota.text = it }
 
             if (!item.image .isNullOrBlank())
                 Glide.with(img).load(item.image).into(img)
